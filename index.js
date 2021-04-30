@@ -6,3 +6,21 @@ const text =
   in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \
   Excepteur sint occaecat cupidatat non proident, \
   sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+function censor(text, replacement, toCensor) {
+  censored = []
+  text = text.split(" ")
+  for (word of text) {
+    if (word === toCensor) {
+      censored.push(replacement.repeat(toCensor.length))
+    } else {
+      censored.push(word)
+    }
+  }
+  censored = censored.join(" ")
+  return text
+}
+
+censor(text, "!", "in")
+
+
